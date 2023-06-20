@@ -5,7 +5,7 @@ import DashboardLeftBar from "./DashboardLeftBar";
 
 const DashbaordComponent = () => {
   return (
-    <div className="flex">
+    <div className="grid grid-cols-[200px_minmax(900px,_1fr)_100px]">
       <DashboardLeftBar />
       <TaskForm />
       <DashboardRightBar />
