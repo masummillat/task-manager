@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Drawer from "rc-drawer";
+import { AiOutlineMenu } from "react-icons/ai";
 import CustomDrawer from "../base/CustomDrawer";
 
 const DashboardLeftBar = () => {
@@ -10,9 +10,11 @@ const DashboardLeftBar = () => {
     setOpen((c) => !c);
   };
   return (
-    <div>
-      <CustomDrawer placement="left" open={open} handleOpen={onSwitch} />
-      <button onClick={onSwitch}>switch</button>
+    <div style={{ width: open ? "250px" : "auto" }}>
+      <CustomDrawer placement="left" open={open} handleOpen={onSwitch}>
+        <div>Coasjfdaoskdfjlk</div>
+      </CustomDrawer>
+      <AiOutlineMenu onClick={onSwitch} />
     </div>
   );
 };

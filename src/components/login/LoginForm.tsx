@@ -8,6 +8,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { saveToken } from "@/app/login/action";
 import { useRouter } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 const schema = yup
   .object({
@@ -35,9 +36,16 @@ const LoginForm: React.FC = () => {
     },
   });
   const onSubmit: SubmitHandler<InputType> = async (data: InputType) => {
-    console.log(data);
-    await saveToken("My secret token");
-    push("/login");
+    await saveToken("My secret token")
+      .then(async (res) => {
+        console.log("=======what the fuck ");
+        console.log(res);
+        push("/dashboard");
+      })
+      .catch((err) => {
+        console.log("error", err);
+        alert(err);
+      });
   };
 
   return (
