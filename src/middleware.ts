@@ -15,7 +15,7 @@ export function middleware(request: IRequest) {
     if (!request.cookies.get('authToken')?.value) {
       return NextResponse.redirect(new URL('/login', request.url))
     }
-  }else if(nextUrl?.pathname === '/login' || nextUrl?.pathname === '/signup'){
+  }else if(nextUrl?.pathname === '/login' || nextUrl?.pathname === '/signup' || nextUrl?.pathname === '/'){
   
 
     if (request.cookies.get('authToken')?.value) {
@@ -26,5 +26,5 @@ export function middleware(request: IRequest) {
    
   // See "Matching Paths" below to learn more
   export const config = {
-    matcher: ['/dashboard/:path*', '/login', '/signup'],
+    matcher: ['/dashboard/:path*', '/login', '/signup', '/'],
   }
